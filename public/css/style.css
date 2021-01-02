@@ -13,45 +13,13 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  background: transparent;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: #d5d4d4;
   color: white;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
-  height: 100%;
   min-height: 100vh;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 600;
-}
-
-img {
-  width: 100%;
-}
-
-.primary-text {
-  color: white;
-  font-size: 2.6rem;
-}
-
-.secondary-text {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.grid-container {
-  position: relative;
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: -ms-grid;
-  display: grid;
-}
-
-.card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,17 +29,194 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.primary-text {
+  color: white;
+  opacity: 0.9;
+  font-size: 1.8rem;
+  margin: 24px 0;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.secondary-text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.grid-container {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 2rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90%;
-  height: 90%;
+  padding: 28px;
+  border-radius: 5px;
 }
 
-.photo {
-  height: 50px;
-  width: 50px;
-  border: 5px solid #cfcfcf;
+.card-1 {
+  position: relative;
+  background: #7541c8;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+}
+
+.card-1 .person-info {
+  z-index: 1;
+}
+
+.card-1 #quotation {
+  position: absolute;
+  top: 0;
+  right: 17%;
+  z-index: 0;
+}
+
+.card-2 {
+  background: #48556a;
+}
+
+.card-4 {
+  background: #19212e;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+}
+
+.card-5 {
+  background: white;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+.card-1 .person-info img,
+.card-4 .person-info img {
+  border: 3px solid #9f77ea;
+}
+
+.card-3,
+.card-5 {
+  background: white;
+}
+
+.card-3 .person-info img,
+.card-5 .person-info img {
+  border: none;
+}
+
+.card-3 .person-info .name,
+.card-5 .person-info .name {
+  color: black;
+}
+
+.card-3 .person-info .status,
+.card-5 .person-info .status {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.card-3 .primary-text,
+.card-5 .primary-text {
+  color: black;
+  opacity: 0.7;
+}
+
+.card-3 .secondary-text,
+.card-5 .secondary-text {
+  color: black;
+  opacity: 0.5;
+}
+
+.person-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.person-info img {
+  height: 40px;
+  width: 40px;
+  border: 3px solid #cfcfcf;
   border-radius: 50%;
+  margin-right: 10px;
+}
+
+.person-info .name {
+  font-weight: 600;
+}
+
+.person-info .status {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 50%;
+  }
+  .card-1 #quotation {
+    height: 50px;
+    height: 50px;
+  }
+  .grid-container {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-container .card {
+    grid-column: initial;
+    grid-row: initial;
+  }
+  .grid-container .card-5 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    display: block;
+  }
+  .grid-container .card {
+    margin-bottom: 24px;
+  }
 }

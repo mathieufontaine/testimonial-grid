@@ -20,29 +20,25 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  background: transparent;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: rgb(213, 212, 212);
   color: $white;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
-  height: 100%;
   min-height: 100vh;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 600;
-}
-
-img {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .primary-text {
   color: $white;
-  font-size: 2.6rem;
+  opacity: 0.9;
+  font-size: 1.8rem;
+  margin: 24px 0;
+  line-height: 1.3;
+  font-weight: 600;
 }
 
 .secondary-text {
@@ -51,24 +47,134 @@ img {
 
 .grid-container {
   position: relative;
-  width: 80%;
+  width: 90%;
+  height: 90%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   display: grid;
+  justify-content: center;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .card {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: stretch;
   flex-direction: column;
-  width: 90%;
-  height: 90%;
+  padding: 28px;
+  border-radius: 5px;
+}
+.card-1 {
+  position: relative;
+  background: $violet;
+  grid-column: 1 / 3;
+  .person-info {
+    z-index: 1;
+  }
+  #quotation {
+    position: absolute;
+    top: 0;
+    right: 17%;
+    z-index: 0;
+  }
+}
+.card-2 {
+  background: $grayish-blue;
+}
+.card-4 {
+  background: $blackish-blue;
+  grid-column: 2 / 4;
+}
+.card-5 {
+  background: $white;
+  grid-row: 1 / 3;
+  grid-column: 4 / 5;
 }
 
-.photo {
-  height: 50px;
-  width: 50px;
-  border: 5px solid $light-gray;
-  border-radius: 50%;
+.card-1,
+.card-4 {
+  .person-info {
+    img {
+      border: 3px solid #9f77ea;
+    }
+  }
+}
+
+.card-3,
+.card-5 {
+  background: $white;
+  .person-info {
+    img {
+      border: none;
+    }
+    .name {
+      color: black;
+    }
+    .status {
+      color: rgba(black, 0.5);
+    }
+  }
+
+  .primary-text {
+    color: black;
+    opacity: 0.7;
+  }
+  .secondary-text {
+    color: black;
+    opacity: 0.5;
+  }
+}
+.person-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  img {
+    height: 40px;
+    width: 40px;
+    border: 3px solid $light-gray;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .name {
+    font-weight: 600;
+  }
+  .status {
+    color: rgba($white, 0.5);
+  }
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 800px) {
+  html {
+    font-size: 50%;
+  }
+  .card-1 #quotation {
+    height: 50px;
+    height: 50px;
+  }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    .card {
+      grid-column: initial;
+      grid-row: initial;
+    }
+    .card-5 {
+      grid-column: 1 / 3;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .grid-container {
+    display: block;
+    .card {
+      margin-bottom: 24px;
+    }
+  }
 }
